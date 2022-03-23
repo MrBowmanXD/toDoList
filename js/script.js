@@ -49,12 +49,16 @@ const ToDoList = (function () {
       );
 
       toDoList.push(toDo);
-      _cleanToDoDisplay();
-      _populateDisplay();
-      _removeBtn();
-      _removeAllBtn();
-      console.log(toDoList);
+      _setDisplayToDo();
     });
+  }
+
+  function _setDisplayToDo() {
+    _cleanToDoDisplay();
+    _populateDisplay();
+    _removeBtn();
+    _removeAllBtn();
+    _modifyToDo();
   }
 
   function _populateDisplay() {
@@ -67,9 +71,64 @@ const ToDoList = (function () {
           <p class="bold">Description</p><p>${toDoItem.description}</p>
           <p class="bold">Due Date</p><p>${parseInt(toDoItem.dueDate)}</p>
           <p class="bold">Priority</p><p>${toDoItem.priority}</p>
+          <button class="modify modify${toDoItem.counter}">Modify</button>
           <button class="remove remove${toDoItem.counter}">Remove</button>`;
 
       flexContainer.appendChild(div);
+    });
+  }
+
+  function _modifyToDo() {
+    const toModifyEventually = document.querySelectorAll('.modify');
+    const toModify = [...toModifyEventually];
+
+    toModify.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        for (let toDoItem of toDoList) {
+          if (typeof toDoItem != 'object') {
+            continue;
+          } else {
+            const modifyItem = document.querySelector(
+              `.modify${toDoItem.counter}`
+            );
+            if (btn == modifyItem) {
+              const flexChild = document.querySelector(
+                `.flex-child${toDoItem.counter}`
+              );
+
+              const div = document.createElement('div');
+              div.classList.add('modifyForm');
+              div.classList.add(`modifyForm${toDoItem.counter}`);
+              div.innerHTML = `<form>
+              <br>
+              <input type="text" name="title" id="title${toDoItem.counter}" placeholder="title">
+              <br>
+              <input type="text" name="description" id="description${toDoItem.counter}" placeholder="description">
+              <br>
+              <input type="date" name="dueDate" id="dueDate${toDoItem.counter}" placeholder="due Date">
+              <br>
+              <input type="text" name="priority" id="priority${toDoItem.counter}" placeholder="priority">
+              <br>
+              <button class="update toDoItem${toDoItem.counter}">Update ToDo item</button>
+          </form>`;
+
+              flexChild.appendChild(div);
+
+              const updateBtns = document.querySelectorAll('.update');
+              const updateBtnsArray = [...updateBtns];
+
+              updateBtnsArray.forEach((updateBtn) => {
+                updateBtn.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  // to do: Add unique class to p tags,
+                  // Update current value of title,
+                  // description, etc.. with the value of new form
+                });
+              });
+            }
+          }
+        }
+      });
     });
   }
 
