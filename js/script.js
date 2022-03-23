@@ -241,5 +241,3 @@ const ToDoList = (function () {
 })();
 
 ToDoList.createToDoItem();
-
-// Bug: 2 forms in updateToDoItem button
