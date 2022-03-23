@@ -67,10 +67,18 @@ const ToDoList = (function () {
       div.classList.add('flex-child');
       div.classList.add(`flex-child${toDoItem.counter}`);
       div.classList.add(`removable${toDoItem.counter}`);
-      div.innerHTML += `<p class="bold">Title</p><p>${toDoItem.title}</p>
-          <p class="bold">Description</p><p>${toDoItem.description}</p>
-          <p class="bold">Due Date</p><p>${parseInt(toDoItem.dueDate)}</p>
-          <p class="bold">Priority</p><p>${toDoItem.priority}</p>
+      div.innerHTML += `<p class="title title${
+        toDoItem.counter
+      } bold">Title</p><p>${toDoItem.title}</p>
+          <p class="description description${
+            toDoItem.counter
+          } bold">Description</p><p>${toDoItem.description}</p>
+          <p class="dueDate dueDate${
+            toDoItem.counter
+          } bold">Due Date</p><p>${parseInt(toDoItem.dueDate)}</p>
+          <p class="priority priority${toDoItem.counter} bold">Priority</p><p>${
+        toDoItem.priority
+      }</p>
           <button class="modify modify${toDoItem.counter}">Modify</button>
           <button class="remove remove${toDoItem.counter}">Remove</button>`;
 
@@ -120,9 +128,48 @@ const ToDoList = (function () {
               updateBtnsArray.forEach((updateBtn) => {
                 updateBtn.addEventListener('click', (e) => {
                   e.preventDefault();
-                  // to do: Add unique class to p tags,
-                  // Update current value of title,
-                  // description, etc.. with the value of new form
+                  const title = document.querySelector(
+                    `#title${toDoItem.counter}`
+                  );
+                  const description = document.querySelector(
+                    `#description${toDoItem.counter}`
+                  );
+                  const dueDate = document.querySelector(
+                    `#dueDate${toDoItem.counter}`
+                  );
+                  const priority = document.querySelector(
+                    `#priority${toDoItem.counter}`
+                  );
+
+                  toDoItem.title = title.value;
+                  toDoItem.description = description.value;
+                  toDoItem.dueDate = dueDate.value;
+                  toDoItem.priority = priority.value;
+
+                  const pTitle = document.querySelector(
+                    `.title${toDoItem.counter}`
+                  );
+                  const pDescription = document.querySelector(
+                    `.description${toDoItem.counter}`
+                  );
+                  const pDueDate = document.querySelector(
+                    `.dueDate${toDoItem.counter}`
+                  );
+                  const pPriority = document.querySelector(
+                    `.priority${toDoItem.counter}`
+                  );
+
+                  pTitle.textContent = toDoItem.title;
+                  pDescription.textContent = toDoItem.description;
+                  pDueDate.textContent = toDoItem.dueDate;
+                  pPriority.textContent = toDoItem.priority;
+
+                  const form = document.querySelector(
+                    `.modifyForm${toDoItem.counter}`
+                  );
+                  form.classList.toggle('hidden');
+
+                  isModified = true;
                 });
               });
             }
@@ -185,3 +232,5 @@ const ToDoList = (function () {
 })();
 
 ToDoList.createToDoItem();
+
+// Bug: 2 forms in updateToDoItem button
