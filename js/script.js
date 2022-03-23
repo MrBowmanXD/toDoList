@@ -104,6 +104,15 @@ const ToDoList = (function () {
                 `.flex-child${toDoItem.counter}`
               );
 
+              const formDiv = document.querySelector(
+                `.modifyForm${toDoItem.counter}`
+              );
+
+              if (formDiv) {
+                formDiv.classList.toggle('hidden');
+                continue;
+              }
+
               const div = document.createElement('div');
               div.classList.add('modifyForm');
               div.classList.add(`modifyForm${toDoItem.counter}`);
