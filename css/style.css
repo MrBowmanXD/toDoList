@@ -1,0 +1,20 @@
+.center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex-container {
+  display: flex;
+  gap: 20px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.flex-child {
+  border: 1px solid black;
+}
