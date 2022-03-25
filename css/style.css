@@ -21,8 +21,15 @@ html {
 }
 
 .main-title {
+  /*
   text-align: left;
+  */
   height: 20vh;
+}
+
+.main-title h1 {
+  font-size: 64px;
+  padding: 25px;
 }
 
 .hidden {
@@ -48,6 +55,10 @@ html {
   height: 60vh;
 }
 
+.right-area {
+  padding: 50px;
+}
+
 /*
 .left-area {
   background-color: rgba(0, 0, 0, 0.603);
@@ -63,32 +74,51 @@ html {
 .inbox {
   display: flex;
   gap: 15px;
+  font-size: 25px;
 }
 
 .calendar-day {
   display: flex;
   gap: 15px;
+  font-size: 25px;
 }
 
 .calendar-week {
   display: flex;
   gap: 15px;
+  font-size: 25px;
 }
 
 .projects {
   display: flex;
   gap: 15px;
+  font-size: 25px;
 }
 
 .add-project {
   display: flex;
   gap: 15px;
+  font-size: 25px;
+}
+
+.add-task {
+  display: flex;
+}
+
+.add-task__paragragh {
+  display: flex;
 }
 
 .footer .same-line i {
-  margin: 15px;
+  padding: 25px;
+  font-size: 25px;
 }
 
 .footer .same-line p {
-  margin-top: 50px;
+  font-size: 25px;
+  padding: 25px;
+}
+
+.black {
+  color: black;
 }

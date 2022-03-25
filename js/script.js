@@ -8,6 +8,8 @@ const title = document.querySelector('#title');
 const description = document.querySelector('#description');
 const dueDate = document.querySelector('#dueDate');
 const priority = document.querySelector('#priority');
+const toDoContainer = document.querySelector('.todo-container');
+const addTask = document.querySelector('.add-task');
 let toDoList = [];
 
 class ToDo {
@@ -241,3 +243,7 @@ const ToDoList = (function () {
 })();
 
 ToDoList.createToDoItem();
+
+addTask.addEventListener('click', () => {
+  toDoContainer.classList.toggle('hidden');
+});
