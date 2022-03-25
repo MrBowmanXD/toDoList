@@ -1,5 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+.background-img {
+  background-image: url('../img/background-img.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
 .center {
   text-align: center;
+}
+
+.main-title {
+  text-align: left;
+  height: 20vh;
 }
 
 .hidden {
@@ -16,5 +39,56 @@
 }
 
 .flex-child {
-  border: 1px solid black;
+  border: 1px solid white;
+}
+
+.main-area {
+  display: flex;
+  margin: 20px;
+  height: 60vh;
+}
+
+/*
+.left-area {
+  background-color: rgba(0, 0, 0, 0.603);
+}
+*/
+
+.flex-main-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.inbox {
+  display: flex;
+  gap: 15px;
+}
+
+.calendar-day {
+  display: flex;
+  gap: 15px;
+}
+
+.calendar-week {
+  display: flex;
+  gap: 15px;
+}
+
+.projects {
+  display: flex;
+  gap: 15px;
+}
+
+.add-project {
+  display: flex;
+  gap: 15px;
+}
+
+.footer .same-line i {
+  margin: 15px;
+}
+
+.footer .same-line p {
+  margin-top: 50px;
 }
