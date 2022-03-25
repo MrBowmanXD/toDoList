@@ -52,6 +52,7 @@ const ToDoList = (function () {
 
       toDoList.push(toDo);
       _setDisplayToDo();
+      addTask.classList.toggle('hidden');
     });
   }
 
@@ -246,4 +247,5 @@ ToDoList.createToDoItem();
 
 addTask.addEventListener('click', () => {
   toDoContainer.classList.toggle('hidden');
+  addTask.classList.toggle('hidden');
 });

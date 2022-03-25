@@ -32,10 +32,6 @@ html {
   padding: 25px;
 }
 
-.hidden {
-  display: none;
-}
-
 .flex-container {
   display: flex;
   gap: 20px;
@@ -57,6 +53,7 @@ html {
 
 .right-area {
   padding: 50px;
+  font-size: 24px;
 }
 
 /*
@@ -77,16 +74,47 @@ html {
   font-size: 25px;
 }
 
+.inbox:hover {
+  background-color: grey;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 15px;
+  padding-left: 15px;
+  display: flex;
+  transition: 0.5s;
+}
+
 .calendar-day {
   display: flex;
   gap: 15px;
   font-size: 25px;
 }
 
+.calendar-day:hover {
+  background-color: grey;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 15px;
+  padding-left: 15px;
+  display: flex;
+  transition: 0.5s;
+}
+
 .calendar-week {
   display: flex;
   gap: 15px;
   font-size: 25px;
+}
+
+.calendar-week:hover {
+  background-color: grey;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  transition: 0.5s;
 }
 
 .projects {
@@ -101,12 +129,34 @@ html {
   font-size: 25px;
 }
 
+.add-project:hover {
+  background-color: grey;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 15px;
+  padding-left: 15px;
+  display: flex;
+  transition: 0.5s;
+}
+
 .add-task {
   display: flex;
 }
 
+.add-task:hover {
+  background-color: grey;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 15px;
+  width: 25vw;
+  padding-left: 15px;
+  display: flex;
+  transition: 0.5s;
+}
+
 .add-task__paragragh {
   display: flex;
+  padding-left: 15px;
 }
 
 .footer .same-line i {
@@ -121,4 +171,31 @@ html {
 
 .black {
   color: black;
+}
+
+.ToDoInput {
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  border: 1px solid black;
+}
+
+button {
+  padding: 5px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 15px;
+  border: 1px solid black;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.hidden {
+  display: none;
 }
