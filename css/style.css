@@ -80,6 +80,7 @@ html {
   font-weight: bold;
   border-radius: 15px;
   padding-left: 15px;
+  padding-right: 15px;
   display: flex;
   transition: 0.5s;
 }
@@ -96,6 +97,7 @@ html {
   font-weight: bold;
   border-radius: 15px;
   padding-left: 15px;
+  padding-right: 15px;
   display: flex;
   transition: 0.5s;
 }
@@ -148,7 +150,7 @@ html {
   cursor: pointer;
   font-weight: bold;
   border-radius: 15px;
-  width: 25vw;
+  width: 250px;
   padding-left: 15px;
   display: flex;
   transition: 0.5s;

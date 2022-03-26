@@ -1,45 +1,18 @@
-const container = document.querySelector('.container');
-const toDoInput = document.querySelector('.ToDoInput');
-const createBtn = document.querySelector('.createToDo');
-const getBtn = document.querySelector('.toDoItem');
-const flexContainer = document.querySelector('.flex-container');
-const removeAll = document.querySelector('.removeAll');
-const title = document.querySelector('#title');
-const description = document.querySelector('#description');
-const dueDate = document.querySelector('#dueDate');
-const priority = document.querySelector('#priority');
-const toDoContainer = document.querySelector('.todo-container');
-const addTask = document.querySelector('.add-task');
-let toDoList = [];
-
-class ToDo {
-  title = 'Learn to code.';
-  description = 'Learn to code javascript, react and node.js.';
-  dueDate = '30/03/2021';
-  priority = false;
-  counter = 0;
-
-  constructor(title, description, dueDate, priority, counter) {
-    this.title = title;
-    this.description = description;
-    this.dueDate = dueDate;
-    this.priority = priority;
-    this.counter = counter;
-  }
-}
+import globals from './globals';
+import ToDo from './class/ToDo';
 
 const ToDoList = (function () {
   let counter = 0;
 
   function _createToDoForm() {
-    createBtn.addEventListener('click', () => {
+    globals.createBtn.addEventListener('click', () => {
       toDoInput.classList.toggle('hidden');
     });
   }
 
   function _createToDoItem() {
     _createToDoForm();
-    getBtn.addEventListener('click', (e) => {
+    globals.getBtn.addEventListener('click', (e) => {
       e.preventDefault();
 
       const toDo = new ToDo(
@@ -50,9 +23,9 @@ const ToDoList = (function () {
         counter++
       );
 
-      toDoList.push(toDo);
+      globals.toDoList.push(toDo);
       _setDisplayToDo();
-      addTask.classList.toggle('hidden');
+      globals.addTask.classList.toggle('hidden');
     });
   }
 
@@ -65,7 +38,7 @@ const ToDoList = (function () {
   }
 
   function _populateDisplay() {
-    toDoList.forEach((toDoItem) => {
+    globals.toDoList.forEach((toDoItem) => {
       const div = document.createElement('div');
       div.classList.add('flex-child');
       div.classList.add(`flex-child${toDoItem.counter}`);
@@ -85,7 +58,7 @@ const ToDoList = (function () {
           <button class="modify modify${toDoItem.counter}">Modify</button>
           <button class="remove remove${toDoItem.counter}">Remove</button>`;
 
-      flexContainer.appendChild(div);
+      globals.flexContainer.appendChild(div);
     });
   }
 
@@ -209,7 +182,7 @@ const ToDoList = (function () {
                 `.flex-child${toDoItem.counter}`
               );
               flexChild.remove();
-              delete toDoList[toDoItem.counter];
+              delete globals.toDoList[toDoItem.counter];
             }
           }
         }
@@ -218,11 +191,11 @@ const ToDoList = (function () {
   }
 
   function _cleanToDoDisplay() {
-    flexContainer.innerHTML = '';
+    globals.flexContainer.innerHTML = '';
   }
 
   function _removeAllBtn() {
-    removeAll.addEventListener('click', _removeToDoItems);
+    globals.removeAll.addEventListener('click', _removeToDoItems);
   }
 
   function _removeToDoItems() {
@@ -230,10 +203,10 @@ const ToDoList = (function () {
     const flexChildArray = [...flexChildAll];
 
     flexChildArray.forEach((div) => {
-      flexContainer.removeChild(div);
+      globals.flexContainer.removeChild(div);
     });
 
-    toDoList = [];
+    globals.toDoList = [];
   }
 
   function createToDoItem() {
@@ -245,7 +218,13 @@ const ToDoList = (function () {
 
 ToDoList.createToDoItem();
 
-addTask.addEventListener('click', () => {
-  toDoContainer.classList.toggle('hidden');
-  addTask.classList.toggle('hidden');
+globals.addTask.addEventListener('click', () => {
+  globals.toDoContainer.classList.toggle('hidden');
+  globals.addTask.classList.toggle('hidden');
+});
+
+globals.cancel.addEventListener('click', (e) => {
+  e.preventDefault();
+  globals.toDoContainer.classList.toggle('hidden');
+  globals.addTask.classList.toggle('hidden');
 });
