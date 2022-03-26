@@ -5,14 +5,14 @@ const ToDoList = (function () {
   let counter = 0;
 
   function _createToDoForm() {
-    globals.createBtn.addEventListener('click', () => {
-      toDoInput.classList.toggle('hidden');
+    globals().createBtn.addEventListener('click', () => {
+      globals().toDoInput.classList.toggle('hidden');
     });
   }
 
   function _createToDoItem() {
     _createToDoForm();
-    globals.getBtn.addEventListener('click', (e) => {
+    globals().getBtn.addEventListener('click', (e) => {
       e.preventDefault();
 
       const toDo = new ToDo(
@@ -23,9 +23,9 @@ const ToDoList = (function () {
         counter++
       );
 
-      globals.toDoList.push(toDo);
+      globals().toDoList.push(toDo);
       _setDisplayToDo();
-      globals.addTask.classList.toggle('hidden');
+      globals().addTask.classList.toggle('hidden');
     });
   }
 
@@ -38,7 +38,7 @@ const ToDoList = (function () {
   }
 
   function _populateDisplay() {
-    globals.toDoList.forEach((toDoItem) => {
+    globals().toDoList.forEach((toDoItem) => {
       const div = document.createElement('div');
       div.classList.add('flex-child');
       div.classList.add(`flex-child${toDoItem.counter}`);
@@ -58,7 +58,7 @@ const ToDoList = (function () {
           <button class="modify modify${toDoItem.counter}">Modify</button>
           <button class="remove remove${toDoItem.counter}">Remove</button>`;
 
-      globals.flexContainer.appendChild(div);
+      globals().flexContainer.appendChild(div);
     });
   }
 
@@ -68,7 +68,7 @@ const ToDoList = (function () {
 
     toModify.forEach((btn) => {
       btn.addEventListener('click', () => {
-        for (let toDoItem of toDoList) {
+        for (let toDoItem of globals().toDoList) {
           if (typeof toDoItem != 'object') {
             continue;
           } else {
@@ -170,7 +170,7 @@ const ToDoList = (function () {
 
     toRemoveArray.forEach((btn) => {
       btn.addEventListener('click', () => {
-        for (let toDoItem of toDoList) {
+        for (let toDoItem of globals().toDoList) {
           if (typeof toDoItem != 'object') {
             continue;
           } else {
@@ -182,7 +182,7 @@ const ToDoList = (function () {
                 `.flex-child${toDoItem.counter}`
               );
               flexChild.remove();
-              delete globals.toDoList[toDoItem.counter];
+              delete globals().toDoList[toDoItem.counter];
             }
           }
         }
@@ -191,11 +191,11 @@ const ToDoList = (function () {
   }
 
   function _cleanToDoDisplay() {
-    globals.flexContainer.innerHTML = '';
+    globals().flexContainer.innerHTML = '';
   }
 
   function _removeAllBtn() {
-    globals.removeAll.addEventListener('click', _removeToDoItems);
+    globals().removeAll.addEventListener('click', _removeToDoItems);
   }
 
   function _removeToDoItems() {
@@ -203,10 +203,10 @@ const ToDoList = (function () {
     const flexChildArray = [...flexChildAll];
 
     flexChildArray.forEach((div) => {
-      globals.flexContainer.removeChild(div);
+      globals().flexContainer.removeChild(div);
     });
 
-    globals.toDoList = [];
+    globals().toDoList = [];
   }
 
   function createToDoItem() {
@@ -218,13 +218,13 @@ const ToDoList = (function () {
 
 ToDoList.createToDoItem();
 
-globals.addTask.addEventListener('click', () => {
-  globals.toDoContainer.classList.toggle('hidden');
-  globals.addTask.classList.toggle('hidden');
+globals().addTask.addEventListener('click', () => {
+  globals().toDoContainer.classList.toggle('hidden');
+  globals().addTask.classList.toggle('hidden');
 });
 
-globals.cancel.addEventListener('click', (e) => {
+globals().cancel.addEventListener('click', (e) => {
   e.preventDefault();
-  globals.toDoContainer.classList.toggle('hidden');
-  globals.addTask.classList.toggle('hidden');
+  globals().toDoContainer.classList.toggle('hidden');
+  globals().addTask.classList.toggle('hidden');
 });
