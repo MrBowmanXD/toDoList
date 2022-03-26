@@ -1,5 +1,9 @@
 import globals from './globals';
 import ToDo from './class/ToDo';
+import inbox from './inbox';
+import day from './day';
+import week from './week';
+import project from './project';
 
 const ToDoList = (function () {
   let counter = 0;
@@ -228,3 +232,8 @@ globals().cancel.addEventListener('click', (e) => {
   globals().toDoContainer.classList.toggle('hidden');
   globals().addTask.classList.toggle('hidden');
 });
+
+inbox().runChangeSubtitle();
+day().runChangeSubtitle();
+week().runChangeSubtitle();
+project().runChangeSubtitle();
