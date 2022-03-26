@@ -220,6 +220,8 @@ const ToDoList = (function () {
   return { createToDoItem };
 })();
 
+export default ToDoList;
+
 ToDoList.createToDoItem();
 
 globals().addTask.addEventListener('click', () => {

@@ -1,4 +1,5 @@
 import globals from './globals';
+import ToDoList from './index';
 
 export default function project() {
   let projectTitles = [];
@@ -45,8 +46,13 @@ export default function project() {
 
         addTask.addEventListener('click', (e) => {
           e.preventDefault();
+          // ToDoList.createToDoItem();
 
           addTask.classList.toggle('hidden');
+          globals().toDoContainer.classList.toggle('hidden');
+          const div = document.createElement('div');
+          // div.innerHTML = ``;
+
           // to-do: add funcitonality to the add task button
         });
       });
@@ -57,5 +63,5 @@ export default function project() {
     _changeSubtitle();
   }
 
-  return { runChangeSubtitle };
+  return { runChangeSubtitle, projectTitles };
 }
