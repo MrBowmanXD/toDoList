@@ -126,6 +126,7 @@ html {
 }
 
 .add-project {
+  text-align: center;
   display: flex;
   gap: 15px;
   font-size: 25px;
@@ -200,4 +201,37 @@ button {
 
 .hidden {
   display: none;
+}
+
+.cancel-project {
+  text-align: center;
+  display: flex;
+  gap: 15px;
+  font-size: 25px;
+}
+
+.cancel-project:hover {
+  background-color: grey;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 15px;
+  padding-left: 15px;
+  display: flex;
+  transition: 0.5s;
+}
+
+input {
+  text-align: center;
+  display: flex;
+  gap: 15px;
+  font-size: 18px;
+  border-radius: 15px;
+}
+
+input:hover {
+  cursor: pointer;
+  font-weight: bold;
+  padding-left: 15px;
+  display: flex;
+  transition: 0.5s;
 }

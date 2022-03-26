@@ -1,5 +1,4 @@
 import globals from './globals';
-import ToDoList from './index';
 
 export default function project() {
   let projectTitles = [];
@@ -15,12 +14,8 @@ export default function project() {
         globals().counter
       }" type="text" name="project" placeholder="Project name">
       <br>
-      <button class="add-project add-project${
-        globals().counter
-      }">Add project</button>
-      <button class="cancel-project cancel-project${
-        globals().counter
-      }">Cancel</button>
+      <h2 class="add-project add-project${globals().counter}">Add project</h2>
+      <h2 class="cancel-project cancel-project${globals().counter}">Cancel</h2>
       </div>`;
 
       const addProjectBtn = document.querySelector(
@@ -34,19 +29,24 @@ export default function project() {
 
         projectTitles.push(project.value);
 
-        div.innerHTML = `<h2 class="subTitle">${project.value}</h2>
-        <div class="add-task">
+        projectTitles.forEach((title) => {
+          div.innerHTML = `<h2 class="subTitle subTitle${
+            globals().counter
+          }">${title}</h2>
+                            <div class="add-task add-task${globals().counter}">
                             <i class="bi bi-plus-square-fill"></i>
                             <p class="add-task__paragragh">Add task</p>
                         </div>`;
-        globals().rightArea.appendChild(div);
-        globals().addTask.remove();
+
+          globals().rightArea.appendChild(div);
+          globals().addTask.remove();
+          globals().subTitleDiv.classList.toggle('hidden');
+        });
+
         const addTask = document.querySelector('.add-task');
-        globals().subTitleDiv.classList.toggle('hidden');
 
         addTask.addEventListener('click', (e) => {
           e.preventDefault();
-          // ToDoList.createToDoItem();
 
           addTask.classList.toggle('hidden');
           globals().toDoContainer.classList.toggle('hidden');
@@ -55,6 +55,15 @@ export default function project() {
 
           // to-do: add funcitonality to the add task button
         });
+      });
+
+      const cancelBtn = document.querySelector(
+        `.cancel-project${globals().counter}`
+      );
+
+      cancelBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // to-do: restore previous state of Project
       });
     });
   }
