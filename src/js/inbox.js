@@ -2,8 +2,8 @@ import globals from './globals';
 
 export default function inbox() {
   function _changeSubtitle() {
-    globals().inbox.addEventListener('click', () => {
-      globals().subTitle.textContent = 'Inbox';
+    globals.inbox.addEventListener('click', () => {
+      globals.subTitle.textContent = 'Inbox';
     });
   }
 

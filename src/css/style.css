@@ -183,6 +183,7 @@ html {
   border: 1px solid black;
 }
 
+/*
 button {
   padding: 5px;
   border-radius: 15px;
@@ -198,6 +199,7 @@ button {
     rgba(0, 212, 255, 1) 100%
   );
 }
+*/
 
 .hidden {
   display: none;
@@ -231,6 +233,23 @@ input {
 input:hover {
   cursor: pointer;
   font-weight: bold;
+  padding-left: 15px;
+  display: flex;
+  transition: 0.5s;
+}
+
+.btn {
+  text-align: center;
+  display: flex;
+  gap: 15px;
+  font-size: 25px;
+}
+
+.btn:hover {
+  background-color: grey;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 15px;
   padding-left: 15px;
   display: flex;
   transition: 0.5s;

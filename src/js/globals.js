@@ -1,4 +1,4 @@
-export default function globals() {
+function globals() {
   const container = document.querySelector('.container');
   const toDoInput = document.querySelector('.ToDoInput');
   const project = document.querySelector('.add-project');
@@ -47,3 +47,5 @@ export default function globals() {
     counter,
   };
 }
+
+export default globals();
