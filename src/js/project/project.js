@@ -1,6 +1,6 @@
-import globals from './globals';
+import globals from '../globals';
 
-export default function project() {
+function project() {
   let projectTitles = [];
 
   function _changeSubtitle() {
@@ -68,3 +68,5 @@ export default function project() {
 
   return { runChangeSubtitle, projectTitles };
 }
+
+export default project();

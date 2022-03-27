@@ -1,6 +1,6 @@
-import globals from './globals';
+import globals from '../globals';
 
-export default function week() {
+function week() {
   function _changeSubtitle() {
     globals.week.addEventListener('click', () => {
       globals.subTitle.textContent = 'Week';
@@ -13,3 +13,5 @@ export default function week() {
 
   return { runChangeSubtitle };
 }
+
+export default week();
